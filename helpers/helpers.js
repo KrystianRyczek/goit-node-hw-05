@@ -1,5 +1,5 @@
 const fs = require("fs").promises;
-const { Jimp } = require("jimp")
+const Jimp  = require("jimp")
 const path = require('path')
 
 
@@ -28,13 +28,24 @@ const setupFolder = async (path)=>{
     }
 }
 const MAX_AVATAR_WIDTH = 512
-const MAX_AVATAR_HEIGHT = 512
+const MAX_AVATAR_HEIGHT = 512 
 
+
+// const isImageAndTransform = async (path) =>{
+//     console.log("path", path)
+//     const image = await Jimp.read(path) 
+// //     Jimp.read("./public/avatars/e93030ed-c60e-4c2c-8b30-b1bfb7ebdacf.png")
+// //   .then(image => {
+// //     console.log("reading OK")
+// //   })
+// //   .catch(err => {
+// //     console.log(err)
+// //   });
+// }
 
 const isImageAndTransform = async (path) =>
     new Promise((resolve) => {
         Jimp.read(path, async (err, image) => {
-            console.log("path", path)
             if (err) resolve(false);
 
             try {
@@ -104,4 +115,4 @@ const isImageAndTransform = async (path) =>
 //               }); 
 
 
-module.exports={setupFolder, isImageAndTransform, tempDir, storeImageDir}
+module.exports={setupFolder, isImageAndTransform, tempDir, storeImageDir} 
