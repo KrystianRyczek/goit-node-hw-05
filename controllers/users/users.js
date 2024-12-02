@@ -103,7 +103,7 @@ const createAvatar = async (req, res, next)  => {
     await fs.unlink(temporaryPath)
     return next(e)
   }
-
+  console.log("filePath", filePath)
   const isValidAndTransform = await isImageAndTransform(filePath);
   if (!isValidAndTransform) {
     await fs.unlink(filePath);
